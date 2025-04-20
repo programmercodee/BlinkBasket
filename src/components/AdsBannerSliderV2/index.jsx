@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import { Navigation, Autoplay } from 'swiper/modules';
-import BannerBoxV2 from '../bannerBoxV2';
+import BannerBoxV2 from '../BannerBoxV2';
 
 const AdsBannerSliderV2 = (props) => {
   return (
