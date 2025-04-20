@@ -268,24 +268,24 @@ const ProductItem = (props) => {
 
       <div className="productDetails p-4 py-5 overflow-y-hidden flex-grow h-[170px]">
 
-        <h6 className='text-[13px]'>{props?.item?.brand}</h6>
-        <h3 className='text-[14px] title font-[500] text-[rgba(0,0,0,0.9)] mt-1 mb-1 line-clamp-2  overflow-hidden' >
-          <Link to={`/product/${props?.item?._id}`} className='link transition-all'>{props?.item?.name?.substr(0, 20) + "..."}</Link></h3>
+        <h6 className='md:text-[13px] text-[10px]'>{props?.item?.brand}</h6>
+        <h3 className='md:text-[14px] text-[12px] title font-[500] text-[rgba(0,0,0,0.9)] mt-1 mb-1 line-clamp-2  overflow-hidden' >
+          <Link to={`/product/${props?.item?._id}`} className='link transition-all'>{props?.item?.name?.substr(0, 15) + "..."}</Link></h3>
 
         <Rating name="size-small" value={props?.item?.rating} size="small" readOnly precision={0.5} />
 
         <div className="price flex items-center mt-1 gap-4">
 
-          <span className='oldPrice line-through text-gray-600 text-[16px] font-[500]'>₹{props?.item?.oldPrice}.00</span>
-          <span className='newPrice text-primary text-[16px] font-[500]'>₹{props?.item?.price}.00</span>
+          <span className='oldPrice line-through text-gray-600 md:text-[16px] text-[12px] font-[500]'>₹{props?.item?.oldPrice}.00</span>
+          <span className='newPrice text-primary md:text-[16px] text-[12px] font-[500]'>₹{props?.item?.price}.00</span>
 
         </div>
 
         <div className="w-full mt-2">
           {
             isAdded === false ?
-              <Button className='flex items-center btn-org btn-border btn-sm gap-2' onClick={() => { addToCart(props?.item, context?.userData?._id, quantity) }}>
-                <MdOutlineShoppingCart className='text-[22px]' />Add to Cart</Button>
+              <Button className='flex items-center !bg-[#ff5656] md:!py-[7px] !py-[3p] md:!px-[18px] md:!text-[16px] !text-[10px] !text-white gap-2 ' onClick={() => { addToCart(props?.item, context?.userData?._id, quantity) }}>
+                <MdOutlineShoppingCart className='md:text-[22px] text-[18px]' />Add to Cart</Button>
 
               :
 

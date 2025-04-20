@@ -1,6 +1,7 @@
 // Jai Shree Ram jii
 
 import "./App.css";
+import "./responsive.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
@@ -34,6 +35,7 @@ import Address from "./Pages/MyAccount/address";
 import HelpCenter from "./Pages/HelpCenter";
 import TermsandConditions from "./Pages/Terms-and-Conditions";
 import AboutUs from "./Pages/About Us";
+import SearchPage from "./Pages/Search";
 
 const MyContext = createContext();
 
@@ -47,8 +49,11 @@ function App() {
 
   // Login and logout
   const [isLogin, setIsLogin] = useState(false);
-  //ths is used in backend 
+  //ths is used in backend  
   const [userData, setUserData] = useState(null)
+
+  //search products
+  const [searchData, setsearchData] = useState([])
 
   //ths is used in backend for mainting user data
   useEffect(() => {
@@ -217,7 +222,9 @@ function App() {
     myListData,
     setMyListData,
     getMyListData,
-    getUserDetails
+    getUserDetails,
+    searchData, 
+    setsearchData
 
   };
 
@@ -288,6 +295,11 @@ function App() {
               path={"/about-us"}
               exact={true}
               element={<AboutUs />}
+            ></Route>
+            <Route
+              path={"/search"}
+              exact={true}
+              element={<SearchPage />}
             ></Route>
           </Routes>
           <Footer />

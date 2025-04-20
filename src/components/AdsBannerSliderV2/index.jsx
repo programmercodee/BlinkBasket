@@ -13,8 +13,13 @@ const AdsBannerSliderV2 = (props) => {
   return (
     <div className='py-4 productsSlider'> 
       <Swiper
-        slidesPerView={props.items}
+        slidesPerView={1}
         spaceBetween={20}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+        }}
         loop={true}
         navigation={true}
         autoplay={{

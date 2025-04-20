@@ -40,7 +40,7 @@ const SideBar = (props) => {
   const location = useLocation()
 
   const handleCheckBoxChange = (field, value) => {
-
+    context?.setsearchData([])
     const currentValue = filters[field] || []
     const updatedValue = currentValue?.includes(value) ?
       currentValue.filter((item) => item !== value) :
@@ -63,11 +63,15 @@ const SideBar = (props) => {
 
   useEffect(() => {
     props.setIsLoading(true);
+
     postData(`/api/product/filters`, filters).then(res => {
       props.setProductData(res);
       props.setIsLoading(false);
-      props.setTotalPage(res?.total);
+      props.setTotalPage(res?.totalPage);
+      window.scrollTo(0, 0)
     });
+
+
   }, [filters, props.page]);
 
   useEffect(() => {
@@ -83,8 +87,8 @@ const SideBar = (props) => {
       }));
     }
   }, [location]);
-  
-  
+
+
 
   useEffect(() => {
     const url = window.location.href
@@ -99,6 +103,7 @@ const SideBar = (props) => {
       filters.subCatId = []
       filters.thirdsubCatId = []
       filters.rating = []
+      context?.setsearchData([])
     }
 
 
@@ -110,6 +115,7 @@ const SideBar = (props) => {
       filters.catId = []
       filters.thirdsubCatId = []
       filters.rating = []
+      context?.setsearchData([])
     }
 
     if (url?.includes("thirdLevelCatId")) {
@@ -120,6 +126,7 @@ const SideBar = (props) => {
       filters.catId = []
       filters.subCatId = []
       filters.rating = []
+      context?.setsearchData([])
     }
 
     filters.page = 1
@@ -132,13 +139,22 @@ const SideBar = (props) => {
 
   const filtersData = () => {
     props.setIsLoading(true)
-    postData(`/api/product/filters`, filters).then((res) => {
-      props.setProductData(res)
-      console.log(res)
-      props.setIsLoading(false)
-      props.setTotalPage(res?.total      )
-      // window.scrollTo(0,0)
-    })
+
+    if (context.searchData?.products?.length > 0) {
+      props.setProductData(context.searchData);
+      props.setIsLoading(false);
+      props.setTotalPage(context.searchData?.totalPage);
+      window.scrollTo(0, 0)
+    } else {
+      postData(`/api/product/filters`, filters).then((res) => {
+        props.setProductData(res)
+        props.setIsLoading(false)
+        props.setTotalPage(res?.total)
+        window.scrollTo(0, 0)
+      })
+    }
+
+
   }
 
   useEffect(() => {

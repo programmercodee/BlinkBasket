@@ -43,13 +43,13 @@ const HomeSliderV2 = () => {
             <img src="https://res.cloudinary.com/defazdfkp/image/upload/v1742027733/v2-2_nuzyxw.jpg" />
 
             <div className="info flex items-center flex-col absolute top-0 right-[0px]  transition-all duration-500 h-[100%] z-50 p-8 justify-center w-[50%] ]">
-              <h4 className='text-[18px] font-[500] w-full mb-5 -top-[500px] relative duration-700'><span className='text-[#ff5252]'>Big</span> Saving Days Sale</h4>
-              <h2 className='text-[40px] font-[600] w-full mb-2  left-[500px] relative duration-300'>Want to stand out <br /> from the crowd?</h2>
-              <h3 className='text-[18px] font-[500] w-full mb-3  left-[500px] relative duration-700'>Starting At Only <span className='text-[30px] text-[#ff5252] font-[700]'>₹599.00</span></h3>
+              <h4 className='lg:text-[30px] md:text-[34px] text-[13px] font-[500] w-full mb-5 -top-[500px] relative duration-700'><span className='text-[#ff5252]'>Big</span> Saving Days Sale</h4>
+              <h2 className='lg:text-[30px] md:text-[34px] text-[13px] font-[600] w-full mb-2  left-[500px] relative duration-300'>Want to stand out <br /> from the crowd?</h2>
+              <h3 className='lg:text-[30px] md:text-[34px] text-[13px] font-[500] w-full mb-3  left-[500px] relative duration-700'>Starting At Only <span className='lg:text-[30px] md:text-[34px] text-[13px] text-[#ff5252] font-[700]'>₹599.00</span></h3>
 
-              <div className="w-full btn_ relative -bottom-[500px] duration-700">
+              <div className="w-full  btn_ relative -bottom-[500px] duration-700">
               <Link to={`/products?subCatId=${context?.catData[0]?.children[1]?._id}`}>
-                <Button className='btn-org '>SHOP NOW</Button>
+                <Button className='btn-org  '>SHOP NOW</Button>
                </Link>
               </div>
 

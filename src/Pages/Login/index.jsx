@@ -182,7 +182,7 @@ const Login = () => {
   return (
     <section className='py-10'>
       <div className="container">
-        <div className="card shadow-xl w-[430px] p-4 px-10 m-auto bg-white rounded-lg">
+        <div className="card shadow-xl md:w-[430px] w-[390px] p-4 px-10 m-auto bg-white rounded-lg">
           <div className="flex items-center justify-center mt-3">
             <img src={login_icon} alt="" width={90} />
           </div>

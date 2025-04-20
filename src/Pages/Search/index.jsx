@@ -14,7 +14,7 @@ import { useLocation } from 'react-router-dom';
 import { fetchDataFromApi } from '../../utils/api';
 
 
-const ProductListing = () => {
+const SearchPage = () => {
 
   const [itemView, setItemView] = useState('grid');
   const [anchorEl, setAnchorEl] = useState(null);
@@ -95,12 +95,11 @@ const ProductListing = () => {
               isLoading={isLoading}
               setIsLoading={setIsLoading}
               page={page}
-              setPage={setPage}
-              totalPage={totalPage}
               setTotalPage={setTotalPage}
 
             />
           </div>
+
 
           <div className="rightContent w-[80%] ">
 
@@ -216,4 +215,4 @@ const ProductListing = () => {
   )
 }
 
-export default ProductListing
+export default SearchPage

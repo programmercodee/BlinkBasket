@@ -15,8 +15,13 @@ const HomeCatSlider = (props) => {
     <div className="homeCatSlider select-none py-8 ">
       <div className="container">
         <Swiper
-          slidesPerView={8}
+          slidesPerView={1}
           spaceBetween={10}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 8 },
+          }}
           navigation={true}
           loop={true}
           autoplay={{

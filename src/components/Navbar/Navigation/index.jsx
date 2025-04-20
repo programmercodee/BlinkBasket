@@ -34,7 +34,7 @@ const Navigation = () => {
 
       <div className="container flex items-center justify-end gap-8">
 
-        <div className="col_1 w-[20%]">
+        <div className="col_1 md:w-[20%] w-full">
           <Button className='!text-black gap-3 w-full ' onClick={openCategoryPanel}>
             <RiMenu2Fill className='text-[18px]' />
             Shop by Categories
@@ -42,7 +42,7 @@ const Navigation = () => {
           </Button>
         </div>
 
-        <div className="col_2 w-[60%] !py-3">
+        <div className="col_2 w-[60%]  lg:block hidden !py-3">
           <ul className='flex items-center gap-8 nav'>
             <li>
               <Link to="/" className='text-[14px] font-[500] link transition'>Home</Link>
@@ -115,7 +115,7 @@ const Navigation = () => {
           </ul>
         </div>
 
-        <div className="col_3 w-[20%]">
+        <div className="col_3 md:w-[20%] w-[0%] md:block hidden">
           <p className='flex items-center gap-3 font-[500]'><GoRocket className='text-[16px]' />Free International Delivery
           </p>
         </div>

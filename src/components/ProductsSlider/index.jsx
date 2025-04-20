@@ -14,9 +14,14 @@ const ProductsSlider = (props) => {
   return (
     <div className='productsSlider'>
       <Swiper
-        slidesPerView={props.items}
+        slidesPerView={2}
         spaceBetween={20}
         navigation={true}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 6 },
+        }}
         loop={true}
         autoplay={{
           delay: 40000,

@@ -159,9 +159,12 @@ const Register = () => {
   return (
     <section className='py-10'>
       <div className="container">
-        <div className="card shadow-xl w-[430px] p-4 px-10 m-auto bg-white rounded-lg">
-          <div className="flex items-center justify-center mt-3">
+        <div className="card shadow-xl md:w-[430px] w-[390px] md:p-4 md:px-10 px-4  m-auto bg-white rounded-lg">
+          <div className="flex items-center  justify-center mt-3">
+            <div className='w-[18%] md:w-[35%] md:mt-0 mt-3 flex items-center justify-center'>
+
             <img src={sign_up} alt="" width={90} />
+            </div>
           </div>
           <h3 className='text-[18px] text-[#000] font-[600] text-center my-5 '>Register with a new account</h3>
 

@@ -78,32 +78,32 @@ const Navbar = () => {
       <header className='bg-white select-none'>
 
         <div className=' p-2 border-2 border-b-0 border-gray-300 '>
-          <div className='container flex justify-between'>
-            <div>
+          <div className='container flex md:justify-between justify-center items-center md:text-[15px] text-[12px]'>
+            <div className="md:block hidden">
               <p className=''>Get up to 50% off new season styles, limited time only</p>
             </div>
 
             <div >
-              <ul className='flex gap-4'>
+              <ul className='flex md:gap-4 gap-2 mx-auto'>
                 <li>
                   <Link to={'/help-center'}>
-                  <p className='link transition cursor-pointer'>Help Center</p>
+                    <p className='link transition cursor-pointer'>Help Center</p>
                   </Link>
                 </li>
                 <li>
-                <Link to={"/my-orders"}>
-                  
-                  <p className='link transition cursor-pointer'>Order Treacking</p>
+                  <Link to={"/my-orders"}>
+
+                    <p className='link transition cursor-pointer'>Order Treacking</p>
                   </Link>
                 </li>
                 <li>
                   <Link to={'/terms-and-conditions'}>
-                  <p className='link transition cursor-pointer'>Terms and Conditions</p>
+                    <p className='link transition cursor-pointer'>Terms & Conditions</p>
                   </Link>
                 </li>
                 <li>
                   <Link to={'/about-us'}>
-                  <p className='link transition cursor-pointer'>About Us</p>
+                    <p className='link transition cursor-pointer'>About Us</p>
                   </Link>
                 </li>
               </ul>
@@ -111,12 +111,12 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="header p-3  border-2 border-gray-300 ">
-          <div className="container flex items-center">
+        <div className="header md:p-3 md:py-0 py-1  border-2 border-gray-300 ">
+          <div className="container flex items-center gap-1">
 
-            <div className="con1 w-[25%]">
+            <div className="con1  md:w-[25%] w-[20%]">
               <Link to="/">
-              <img className='w-32 rounded-lg' src={logo} alt="logo" />
+                <img className='w-32 rounded-lg' src={logo} alt="logo" />
               </Link>
             </div>
 
@@ -124,12 +124,12 @@ const Navbar = () => {
               <Searchbar />
             </div>
 
-            <div className="con3 w-[35%] pl-10 ">
-              <ul className='pl-2 flex items-center hh gap-5 justify-end'>
+            <div className="con3 w-[40%] md:pl-10 pl-0 ">
+              <ul className='md:pl-2 flex items-center hh md:gap-5 justify-end gap-1'>
                 {/* profile change here */}
                 {
                   context.isLogin === false ?
-                    (<li className='list-none'>
+                    (<li className='list-none md:text-[15px] text-[13px]'>
                       <Link to="/login" className='link transition cursor-pointer'>Login</Link> <span className='text-gray-400'>|</span> <Link to="/register" className='link transition cursor-pointer'>Register</Link>
                     </li>)
                     :
@@ -140,7 +140,7 @@ const Navbar = () => {
                             <img className='w-full h-full object-cover' src={`${context?.userData?.avatar}`} alt="" />
                           </div>
 
-                          <div className="info flex flex-col">
+                          <div className="info flex-col md:flex hidden">
                             <h4 className='font-[500] text-[14px] text-[rgba(0,0,0,0.8)] mb-0 capitalize text-left'>{context.userData?.name}</h4>
                             <span className='font-[400] text-[10px] text-[rgba(0,0,0,0.5)] capitalize text-left'>{context.userData?.email}</span>
                           </div>
@@ -207,7 +207,7 @@ const Navbar = () => {
                     )
                 }
 
-                <li>
+                {/* <li>
                   <Tooltip title="Compare" >
                     <IconButton aria-label="cart">
                       <StyledBadge badgeContent={1} color="secondary">
@@ -215,7 +215,7 @@ const Navbar = () => {
                       </StyledBadge>
                     </IconButton>
                   </Tooltip>
-                </li>
+                </li> */}
                 <li>
                   <Tooltip title="Cart">
 

@@ -27,13 +27,7 @@ const HomeSlider = () => {
             }}
             modules={[Navigation,Autoplay]}
             className="sliderHome">
-            <SwiperSlide>
-            <Link to='/'>
-              <div className="item rounded-[20px] overflow-hidden">
-              <img src="https://api.spicezgold.com/download/file_1734524893797_NewProject(13).jpg" alt="" className='w-full' />
-              </div>
-              </Link>
-            </SwiperSlide>
+            
             <SwiperSlide>
             <Link to='/'>
             <div className="item rounded-[20px] overflow-hidden">
@@ -41,13 +35,7 @@ const HomeSlider = () => {
             </div>
             </Link>
             </SwiperSlide>
-            <SwiperSlide>
-            <Link to='/'>
-            <div className="item rounded-[20px] overflow-hidden">
-              <img src="https://api.spicezgold.com/download/file_1734524958576_NewProject(10).jpg" alt="" className='w-full' />
-            </div>
-            </Link>
-            </SwiperSlide>
+            
             <SwiperSlide>
             <Link to='/'>
             <div className="item rounded-[20px] overflow-hidden">
