@@ -244,10 +244,12 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Navigation, Autoplay } from 'swiper/modules';
 import BlogItem from '../../components/BlogItem';
-import BannerBoxV2 from '../../components/bannerBoxV2';
 import AdsBannerSliderV2 from '../../components/AdsBannerSliderV2';
 import { MyContext } from '../../App';
 import { fetchDataFromApi } from '../../utils/api';
+import BannerBoxV2 from '../../components/BannerBoxV2';
+
+
 
 const Home = () => {
   const context = useContext(MyContext);
