@@ -126,7 +126,7 @@ const MyAccount = () => {
             <form className='mt-5' onSubmit={handleSubmit}>
               <div className="flex items-center gap-5">
                 <div className="w-[50%]">
-                  <TextField label="Full Name"
+                  <TextField 
                     name='name'
                     variant="outlined"
                     size='small'
@@ -135,10 +135,11 @@ const MyAccount = () => {
                     onChange={onChangeInput}
                     value={formFields.name}
                   />
+                 
                 </div>
 
                 <div className="w-[50%]">
-                  <TextField label="Email"
+                  <TextField 
                     name='email'
                     variant="outlined"
                     size='small'

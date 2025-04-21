@@ -137,8 +137,14 @@ const Navbar = () => {
                       <>
                         <Button onClick={handleClick} className='MyAccountWrapper !rounded-lg !text-[#000] flex items-center gap-3 cursor-pointer'>
                           <div className='!w-[40px] !h-[40px] !min-w-[40px] !rounded-full overflow-hidden !bg-[#f1f1f1]'>
-                            <img className='w-full h-full object-cover' src={`${context?.userData?.avatar}`} alt="" />
+                            <img className='w-full h-full object-cover' src={`${context?.userData?.avatar}`} alt="" /> : 
+                            
+
                           </div>
+{/* 
+                          {
+                            console.log(context.userData?.avatar)
+                          } */}
 
                           <div className="info flex-col md:flex hidden">
                             <h4 className='font-[500] text-[14px] text-[rgba(0,0,0,0.8)] mb-0 capitalize text-left'>{context.userData?.name}</h4>
