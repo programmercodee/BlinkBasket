@@ -263,23 +263,23 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchDataFromApi(`/api/product/getAllProductsByCatId/${context?.catData[0]?._id}`).then((res) => {
+    fetchDataFromApi(`${process.env.REACT_APP_API_URL}/api/product/getAllProductsByCatId/${context?.catData[0]?._id}`).then((res) => {
       setPopularProductData(res?.products);
     });
   }, [context?.catData]);
 
   useEffect(() => {
-    fetchDataFromApi(`/api/product/getAllProducts`).then((res) => {
+    fetchDataFromApi(`${process.env.REACT_APP_API_URL}/api/product/getAllProducts`).then((res) => {
       setAllProductsData(res?.products);
     });
-    fetchDataFromApi(`/api/product/getAllFeaturedProducts`).then((res) => {
+    fetchDataFromApi(`${process.env.REACT_APP_API_URL}/api/product/getAllFeaturedProducts`).then((res) => {
       setFeaturedProductsData(res?.products);
     });
     window.scrollTo(0, 0);
   }, []);
 
   const filterByCatTd = (id) => {
-    fetchDataFromApi(`/api/product/getAllProductsByCatId/${id}`).then((res) => {
+    fetchDataFromApi(`${process.env.REACT_APP_API_URL}/api/product/getAllProductsByCatId/${id}`).then((res) => {
       setPopularProductData(res?.products);
     });
   };
