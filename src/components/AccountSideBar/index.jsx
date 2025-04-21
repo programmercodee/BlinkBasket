@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { MdCloudUpload } from "react-icons/md";
 import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import { FaRegUser } from "react-icons/fa";
 import { IoBagCheckOutline } from "react-icons/io5";
@@ -10,20 +10,47 @@ import { AiOutlineLogout } from "react-icons/ai";
 import { MyContext } from '../../App';
 import CircularProgress from '@mui/material/CircularProgress';
 import usericon from '../../assets/icons/user.png'
-import { uploadImage } from '../../utils/api';
+import { fetchDataFromApi, uploadImage } from '../../utils/api';
 import { LuMapPinPlus } from "react-icons/lu";
 
 const AccountSideBar = () => {
   const context = useContext(MyContext)
+    const history = useNavigate()
 
-  useEffect(()=>{
+  const logout = () => {
+   
+
+    fetchDataFromApi(`/api/user/logout?token=${localStorage.getItem("accessToken")}`, { withCredentials: true }).then((res) => {
+      console.log(res)
+
+      if (res?.error === false) {
+
+        localStorage.removeItem("accessToken")
+        localStorage.removeItem("refreshToken")
+        context.setIsLogin(false)
+        context.openAlertBox("success", res.message)
+        context?.setUserData(null)
+        context.getCartData()
+        context.getMyListData()
+        context.setCartData([])
+        context.setMyListData([])
+        history("/")
+
+      }
+
+    })
+  }
+
+
+
+  useEffect(() => {
     const userAvtar = []
 
-    if(context?.userData?.avatar!== "" && context?.userData?.avatar !== undefined){
+    if (context?.userData?.avatar !== "" && context?.userData?.avatar !== undefined) {
       userAvtar.push(context?.userData?.avatar)
       setPreviews(userAvtar)
     }
-  },[context?.userData])
+  }, [context?.userData])
 
   //used in backend 
   const [previews, setPreviews] = useState([])
@@ -55,7 +82,7 @@ const AccountSideBar = () => {
           uploadImage("/api/user/user-avatar", formdata).then((res) => {
             setUploading(false)
             //getting image from response
-            let avatar=[]
+            let avatar = []
             avatar.push(res?.data?.avtar)
             setPreviews(avatar)
             // console.log(res)
@@ -81,25 +108,25 @@ const AccountSideBar = () => {
       <div className="card shadow-md bg-white p- rounded-md sticky top-5">
         <div className="w-full p-5 flex items-center justify-center flex-col">
 
-        {/* user iamge upload section  */}
+          {/* user iamge upload section  */}
           <div className="w-[110px] h-[110px] min-w-[80px] rounded-full overflow-hidden relative mb-3 flex justify-center items-center bg-gray-200">
 
             {
               uploading === true ?
-                < CircularProgress color="inherit" className='' /> : 
+                < CircularProgress color="inherit" className='' /> :
                 <>
-                {
-                  previews?.length !==0 ? previews?.map((img,index)=>{
-                    // console.log(img)
-                    return(
-                      <img className='w-full h-full object-cover' src={img} key={index}/>
-                    )
-                  }) 
+                  {
+                    previews?.length !== 0 ? previews?.map((img, index) => {
+                      // console.log(img)
+                      return (
+                        <img className='w-full h-full object-cover' src={img} key={index} />
+                      )
+                    })
 
-                  :
+                      :
 
-                  <img className='w-full h-full object-cover' src={usericon}/>
-                }
+                      <img className='w-full h-full object-cover' src={usericon} />
+                  }
                 </>
             }
 
@@ -120,7 +147,7 @@ const AccountSideBar = () => {
             </div>
 
           </div>
-          
+
           <h3 className='font-[500]'>{context?.userData?.name}</h3>
           <h6 className='text-[13px] font-[400] text-[rgba(0,0,0,0.6)]'>{context?.userData?.email}</h6>
         </div>
@@ -146,9 +173,9 @@ const AccountSideBar = () => {
               <Button className='flex gap-3 items-center w-full !rounded-none !text-[rgba(0,0,0,0.8)] !capitalize !text-left !justify-start !px-5 !p-2'><MdChecklist className='text-[18px]' />My List</Button>
             </NavLink>
           </li>
-          <li className='w-full pb-2'>
-            <NavLink to="/my-Logout" exact={true} activeClassName="isActive">
-              <Button className='flex gap-3 items-center w-full !rounded-none !text-[rgba(0,0,0,0.8)] !capitalize !text-left !justify-start !px-5 !p-2'><AiOutlineLogout className='text-[18px]' />Logout</Button>
+          <li className='w-full pb-2' onClick={logout}>
+            <NavLink to="/" exact={true} activeClassName="isActive" onClick={logout}>
+              <Button onClick={logout} className='flex gap-3 items-center w-full !rounded-none !text-[rgba(0,0,0,0.8)] !capitalize !text-left !justify-start !px-5 !p-2'><AiOutlineLogout className='text-[18px]' />Logout</Button>
             </NavLink>
           </li>
         </ul>

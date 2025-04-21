@@ -5,6 +5,7 @@ import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import { IoCloseSharp } from "react-icons/io5";
 import CategoryCollapse from '../../CategoryCollapse';
+import { Link } from 'react-router-dom';
 
 
 const CategoriesPanel = (props) => {
@@ -47,9 +48,13 @@ const CategoriesPanel = (props) => {
       <h3 className='p-3 text-[18px] font-[500] flex items-center justify-between'>Shop by Categories <IoCloseSharp onClick={toggleDrawer(false)} className='text-[18px] cursor-pointer' /></h3>
 
       {
-        props?.data?.length !== 0 && <CategoryCollapse data={props?.data}/>
+        props?.data?.length !== 0 && <CategoryCollapse data={props?.data} />
       }
-
+      <div className='px-10 mt-6 md:hidden block'>
+        <Link to='/login'>
+      <Button className='btn-org w-full'>Login</Button>
+        </Link>
+      </div>
 
 
     </Box>
@@ -61,6 +66,7 @@ const CategoriesPanel = (props) => {
       <Drawer open={props.isOpenCatPanel} onClose={toggleDrawer(false)} className='select-none'>
         {DrawerList}
       </Drawer>
+
     </>
   )
 }

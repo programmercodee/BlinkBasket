@@ -190,7 +190,7 @@ const SideBar = (props) => {
         </h3>
 
         <Collapse isOpened={isOpenCategoryFilter} >
-          <div className="scroll px-1">
+          <div className="scroll px-1 ">
             {
               context?.catData?.length !== 0 && context?.catData?.map((item, index) => {
                 return (

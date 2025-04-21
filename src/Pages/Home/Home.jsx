@@ -263,23 +263,23 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchDataFromApi(`${process.env.REACT_APP_API_URL}/api/product/getAllProductsByCatId/${context?.catData[0]?._id}`).then((res) => {
+    fetchDataFromApi(`/api/product/getAllProductsByCatId/${context?.catData[0]?._id}`).then((res) => {
       setPopularProductData(res?.products);
     });
   }, [context?.catData]);
 
   useEffect(() => {
-    fetchDataFromApi(`${process.env.REACT_APP_API_URL}/api/product/getAllProducts`).then((res) => {
+    fetchDataFromApi(`/api/product/getAllProducts`).then((res) => {
       setAllProductsData(res?.products);
     });
-    fetchDataFromApi(`${process.env.REACT_APP_API_URL}/api/product/getAllFeaturedProducts`).then((res) => {
+    fetchDataFromApi(`/api/product/getAllFeaturedProducts`).then((res) => {
       setFeaturedProductsData(res?.products);
     });
     window.scrollTo(0, 0);
   }, []);
 
   const filterByCatTd = (id) => {
-    fetchDataFromApi(`${process.env.REACT_APP_API_URL}/api/product/getAllProductsByCatId/${id}`).then((res) => {
+    fetchDataFromApi(`/api/product/getAllProductsByCatId/${id}`).then((res) => {
       setPopularProductData(res?.products);
     });
   };
@@ -301,15 +301,15 @@ const Home = () => {
 
 
 
-      <section className="bg-white py-8">
-        <div className="container">
+      <section className="bg-white py-10 ">
+        <div className="container ">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-10">
-            <div>
+            <div className=''>
               <h2 className="uppercase font-semibold md:text-xl text-[15]">Popular Products</h2>
               <p className='uppercase font-normal md:text-xs text-[9px]'>Do not miss the current offers until the end of March.</p>
             </div>
 
-            <div className="w-full lg:w-[60%]">
+            <div className="w-full  lg:w-[60%]">
               {context?.catData?.length !== 0 &&
                 <Tabs
                   value={value}
@@ -355,10 +355,13 @@ const Home = () => {
 
       {/* <HomeSlider /> */}
 
-      <section className='py-6 bg-white'>
+      <section className='py-10 bg-white'>
         <div className="container">
           <h2 className="uppercase font-semibold text-xl pb-2">Latest Products</h2>
+          <div className='mb-10 '>
+
           {productsData?.length !== 0 && <ProductsSlider items={6} data={productsData} />}
+          </div>
           <AdsBannerSlider items={3} />
         </div>
       </section>

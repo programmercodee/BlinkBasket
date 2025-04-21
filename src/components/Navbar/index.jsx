@@ -120,24 +120,28 @@ const Navbar = () => {
               </Link>
             </div>
 
-            <div className="con2 w-[40%]">
+            <div className="con2 md:w-[40%] w-[60%]">
               <Searchbar />
             </div>
 
-            <div className="con3 w-[40%] md:pl-10 pl-0 ">
+            <div className="con3 md:w-[40%] w-[30%] md:pl-10 pl-0 ">
               <ul className='md:pl-2 flex items-center hh md:gap-5 justify-end gap-1'>
                 {/* profile change here */}
                 {
                   context.isLogin === false ?
-                    (<li className='list-none md:text-[15px] text-[13px]'>
+                    (<li className='list-none md:text-[15px] text-[13px] md:block hidden'>
                       <Link to="/login" className='link transition cursor-pointer'>Login</Link> <span className='text-gray-400'>|</span> <Link to="/register" className='link transition cursor-pointer'>Register</Link>
                     </li>)
                     :
                     (
                       <>
-                        <Button onClick={handleClick} className='MyAccountWrapper !rounded-lg !text-[#000] flex items-center gap-3 cursor-pointer'>
+                        <Button onClick={handleClick} className='MyAccountWrapper !rounded-lg !text-[#000] flex items-center md:gap-3 cursor-pointer'>
                           <div className='!w-[40px] !h-[40px] !min-w-[40px] !rounded-full overflow-hidden !bg-[#f1f1f1]'>
-                            <img className='w-full h-full object-cover' src={`${context?.userData?.avatar}`} alt="" /> : 
+                            {
+                              context.userData?.avatar !== null ?  <img className='w-full h-full object-cover' src={`${context?.userData?.avatar}`} alt="" />
+                              : <img className='w-full h-full object-cover' src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" /> 
+                            }
+                           
                             
 
                           </div>
