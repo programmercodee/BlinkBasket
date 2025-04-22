@@ -86,7 +86,7 @@ const AccountSideBar = () => {
             avatar.push(res?.data?.avtar)
             setPreviews(avatar)
             // console.log(res)
-            console.log(avatar)
+            // console.log(avatar)
           })
 
         } else {

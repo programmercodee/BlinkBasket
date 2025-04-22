@@ -47,15 +47,15 @@ const Searchbar = () => {
   }
 
   return (
-    <div className='bg-gray-200 w-full h-[50px] rounded-lg p-2 relative'>
+    <div className='bg-gray-200 w-full md:h-[50px] h-[40px]  rounded-lg p-2 relative'>
       <input
         type="text"
         placeholder='Search here'
-        className='h-[35px] focus:outline-none w-full bg-inherit text-sm p-2'
+        className='md:h-[35px] h-[20px] focus:outline-none w-full bg-inherit text-sm p-2'
         value={searchQuery}
         onChange={onChangeInput}
       />
-      <Button className='searchBox !rounded-full !w-[35px] !min-w-[10px] !absolute top-2 right-3 h-[35px]' onClick={search}>
+      <Button className='searchBox !rounded-full !w-[35px] !min-w-[10px] !absolute md:top-2 top-1 right-3 h-[35px]' onClick={search}>
         {
           isLoading === true ? <CircularProgress /> :  <IoSearch className='text-black text-2xl' />
         }

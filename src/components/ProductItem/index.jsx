@@ -193,7 +193,7 @@ const ProductItem = (props) => {
 
 
   return (
-    <div className='productItem overflow-hidden rounded-md py-3 shadow-lg  '>
+    <div className='productItem overflow-hidden rounded-md py-3 shadow-lg '>
 
       <div className="group relative imgWrapper w-[100%] h-[230px] overflow-hidden">
 
@@ -274,7 +274,7 @@ const ProductItem = (props) => {
 
         <Rating name="size-small" value={props?.item?.rating} size="small" readOnly precision={0.5} />
 
-        <div className="price flex items-center mt-1 gap-4">
+        <div className="price flex md:items-center  mt-1 gap-1 md:gap-4">
 
           <span className='oldPrice line-through text-gray-600 md:text-[16px] text-[12px] font-[500]'>₹{props?.item?.oldPrice}.00</span>
           <span className='newPrice text-primary md:text-[16px] text-[12px] font-[500]'>₹{props?.item?.price}.00</span>

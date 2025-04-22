@@ -86,9 +86,9 @@ const ProductListing = () => {
 
       </div>
 
-      <div className="p-2 bg-white mt-4">
+      <div className="md:p-2 p-1 bg-white mt-4">
         <div className="container flex gap-3">
-          <div className="sideBarWrapper bg-white w-[20%] h-full">
+          <div className="sideBarWrapper bg-white md:w-[20%] md:block hidden h-full">
             <SideBar
               productData={productData}
               setProductData={setProductData}
@@ -102,22 +102,22 @@ const ProductListing = () => {
             />
           </div>
 
-          <div className="rightContent w-[80%] ">
+          <div className="rightContent md:w-[80%] w-full">
 
             <div className="bg-[#f1f1f1] p-4 rounded-md w-full flex items-center justify-between">
               <div className="col1 flex items-center gap-1 itemViewActions">
 
-                <Button onClick={() => { setItemView("grid") }} className={`!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !text-[#000] ${itemView === 'grid' && 'active'}`}><IoGridOutline className='text-[20px]' /></Button>
+                <Button onClick={() => { setItemView("grid") }} className={`md:!w-[40px] md:!h-[40px] md:!min-w-[40px] !w-[32px] !h-[32px] !min-w-[32px] !rounded-full !text-[#000] ${itemView === 'grid' && 'active'}`}><IoGridOutline className='text-[20px]' /></Button>
 
-                <Button onClick={() => { setItemView("list") }} className={`!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !text-[#000] ${itemView === 'list' && 'active'}`}><FiMenu className='text-[27px]' /></Button>
+                <Button onClick={() => { setItemView("list") }} className={`md:!w-[40px] md:!h-[40px] md:!min-w-[40px] !w-[32px] !h-[32px] !min-w-[32px] !rounded-full !text-[#000] ${itemView === 'list' && 'active'}`}><FiMenu className='text-[27px]' /></Button>
                 
-                <span className='font-[500] ml-3'>There are <span className='text-[#ff5252]'> {productData?.length !== 0 ? productData?.products?.length : 0}</span> products.</span>
+                <span className='font-[500] ml-3 md:block hidden'>There are <span className='text-[#ff5252]'> {productData?.length !== 0 ? productData?.products?.length : 0}</span> products.</span>
                 
               </div>
              
 
               <div className="col2 flex items-center ml-auto justify-end gap-2">
-                <span className='font-[400] ml-3'>Sort by:</span>
+                <span className='font-[400] ml-3 text-[15px] '>Sort by:</span>
 
                 <Button
                   id="basic-button"
@@ -127,7 +127,7 @@ const ProductListing = () => {
                   onClick={handleClick}
                   className='!text-[13px] !text-[#000] !border !border-[#000] !bg-white !capitalize'
                 >
-                  Sales, highest to lowest
+                  Sales, high to low
                 </Button>
 
                 <Menu
@@ -139,7 +139,7 @@ const ProductListing = () => {
                     'aria-labelledby': 'basic-button',
                   }}
                 >
-                  <MenuItem onClick={handleClose} className='!text-[13px] !text-[#000] !capitalize' > Sales, highest to lowest</MenuItem>
+                  <MenuItem onClick={handleClose} className='!text-[13px] !text-[#000] !capitalize' > Sales, high to low</MenuItem>
                   <MenuItem onClick={handleClose} className='!text-[13px] !text-[#000] !capitalize' >Relevance</MenuItem>
                   <MenuItem onClick={handleClose} className='!text-[13px] !text-[#000] !capitalize'>Name, A to Z</MenuItem>
                   <MenuItem onClick={handleClose} className='!text-[13px] !text-[#000] !capitalize'>Name, Z to A</MenuItem>
@@ -152,7 +152,7 @@ const ProductListing = () => {
 
             </div>
 
-            <div className={`grid gap-2 ${itemView === 'grid' ? 'grid-cols-5 md:grid-cols-5' : 'grid-cols-1 md:grid-cols-1'} `}>
+            <div className={`grid gap-2 ${itemView === 'grid' ? 'grid-cols-2 md:grid-cols-5' : 'grid-cols-1 md:grid-cols-1'} `}>
 
               {
                 itemView === "grid" ? (
@@ -196,13 +196,14 @@ const ProductListing = () => {
    
 
               {totalPage > 1 && (
-                <div className="pagination flex items-center  justify-center my-10">
+                <div className="pagination flex items-center justify-center my-10">
                   <Pagination
                     count={totalPage}
                     page={page}
                     onChange={(e, value) => setPage(value)}
                     showFirstButton
                     showLastButton
+                    size='small'
                   />
                 </div>
               )}

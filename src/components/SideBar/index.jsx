@@ -171,7 +171,7 @@ const SideBar = (props) => {
   }, [price])
 
   return (
-    <aside className='sideBar py-5'>
+    <aside className='sideBar py-5 md:block hidden'>
       <div className="box">
 
         <h3 className='w-full mb-1 text-[16px] font-[600] flex items-center gap-2'>
@@ -292,7 +292,7 @@ const SideBar = (props) => {
       </div>
 
 
-      <div className="box mt-5">
+      <div className="box mt-5 ">
         <h3 className='w-full mb-1 text-[16px] font-[600] flex items-center gap-2'>Rating</h3>
 
         <div className="flex items-center">
