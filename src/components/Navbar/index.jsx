@@ -114,17 +114,17 @@ const Navbar = () => {
         <div className="header md:p-3 md:py-0 py-1  border-2 border-gray-300 ">
           <div className="container flex items-center gap-1">
 
-            <div className="con1  md:w-[25%] w-[20%]">
+            <div className="con1  md:w-[25%] w-[25%]">
               <Link to="/">
                 <img className='w-32 rounded-lg' src={logo} alt="logo" />
               </Link>
             </div>
 
-            <div className="con2 md:w-[40%] w-[60%]">
+            <div className="con2 md:w-[40%] md:block hidden">
               <Searchbar />
             </div>
 
-            <div className="con3 md:w-[40%] w-[30%] md:pl-10 pl-0 ">
+            <div className="con3 md:w-[40%] w-[75%]  md:pl-10 pl-0 ">
               <ul className='md:pl-2 flex items-center hh md:gap-5 justify-end gap-1'>
                 {/* profile change here */}
                 {
@@ -134,7 +134,7 @@ const Navbar = () => {
                     </li>)
                     :
                     (
-                      <>
+                      < div>
                         <Button onClick={handleClick} className='MyAccountWrapper !rounded-lg !text-[#000] flex items-center md:gap-3 cursor-pointer'>
                           <div className='!w-[40px] !h-[40px] !min-w-[40px] !rounded-full overflow-hidden !bg-[#f1f1f1]'>
                             {
@@ -213,7 +213,7 @@ const Navbar = () => {
                           </MenuItem>
                         </Menu>
 
-                      </>
+                      </div>
                     )
                 }
 
@@ -226,7 +226,7 @@ const Navbar = () => {
                     </IconButton>
                   </Tooltip>
                 </li> */}
-                <li>
+                <li className='md:block hidden'>
                   <Tooltip title="Cart">
 
                     <IconButton aria-label="cart" onClick={() => { context.setOpenCartPanel(true) }}>

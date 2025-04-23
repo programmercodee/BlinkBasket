@@ -9,6 +9,7 @@ import { useState } from 'react';
 import { fetchDataFromApi } from '../../../utils/api';
 import CategoriesPanel from './categoriesPanel';
 import { MyContext } from '../../../App';
+import MobileNev from './mobileNev';
 
 const Navigation = () => {
   const context = useContext(MyContext)
@@ -30,6 +31,8 @@ const Navigation = () => {
   }
 
   return (
+    <>
+    
     <nav className='py-'>
 
       <div className="container flex items-center justify-end gap-8">
@@ -130,6 +133,13 @@ const Navigation = () => {
 
 
     </nav>
+
+    {
+      context?.windowWidth < 992 &&  <MobileNev/>
+    }
+
+   
+    </>
   )
 }
 

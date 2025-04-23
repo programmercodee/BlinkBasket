@@ -46,6 +46,7 @@ function App() {
   const [catData, setCatData] = useState([])
   const [cartData, setCartData] = useState([])
   const [myListData, setMyListData] = useState([])
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   // Login and logout
   const [isLogin, setIsLogin] = useState(false);
@@ -97,6 +98,17 @@ function App() {
       setCatData(res?.data)
       console.log(res?.data?._id)
     })
+
+    const handleResize =()=>{
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    }
+
   }, [])
 
   // Dialog
@@ -224,8 +236,9 @@ function App() {
     getMyListData,
     getUserDetails,
     searchData, 
-    setsearchData
-
+    setsearchData,
+    windowWidth,
+    
   };
 
   return (

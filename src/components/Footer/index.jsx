@@ -193,7 +193,7 @@ const Footer = () => {
       </footer>
 
 
-      <div className="bottomStrip md:border-t-2 border-[#f1f1f1] py-2 bg-[#f9f9f9] ">
+      <div className="bottomStrip md:border-t-2 border-[#f1f1f1] py-2 md:pb-0 pb-28 bg-[#f9f9f9] ">
         <div className="container flex items-center justify-between flex-col md:flex-row md:gap-0 gap-4">
           <ul className='flex items-center flex-wrap md:gap-3 gap-2'>
             <li className='list-none'><Link to="/" target='_blanck' className='w-[35px] h-[35px] rounded-full border border-[rgba(0,0,0,0.2)] flex items-center justify-center group hover:bg-[#ff5252] transition-all'><FiYoutube className='text-[15px] group-hover:text-white' /></Link></li>
